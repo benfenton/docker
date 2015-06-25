@@ -24,20 +24,17 @@ build() {
 
 
 #--------------------------------------------------------------------------------#
-# Base image that has all our needed software, but does not run anything.
+# Development related build scripts.
 #--------------------------------------------------------------------------------#
 
 build_base() {
     NAME=base
     VERSION=$VER_BASE
 
+    sed -i 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
     build $NAME $VERSION
+    sed -i 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
 }
-
-
-#--------------------------------------------------------------------------------#
-# Development related build scripts.
-#--------------------------------------------------------------------------------#
 
 build_dev_backend() {
     NAME=backend
@@ -62,16 +59,22 @@ build_dev_webserver() {
 # Development related Docker run scripts.
 #--------------------------------------------------------------------------------#
 
+run_base() {
+    NAME=base
+
+    docker run \
+        -d \
+        -h $NAME \
+        --name $NAME \
+        $REGISTRY/base:$VER_BASE
+}
+
 run_postgres() {
     docker run --name postgres -e POSTGRES_PASSWORD=postgres -d postgres
 }
 
 run_dev_backend() {
     NAME=backend
-
-    echo $SCRIPTPATH
-    echo $CONFDIR
-    echo $ROOTDIR
 
     ls $ROOTDIR/app
 

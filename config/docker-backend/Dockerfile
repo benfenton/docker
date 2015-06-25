@@ -1,4 +1,4 @@
-FROM agolub/base
+FROM agolub/base:VER_BASE
 MAINTAINER Artem Golub <artemgolub@gmail.com>
 
 ENTRYPOINT pip install -r /app/requirements/dev.txt && \
