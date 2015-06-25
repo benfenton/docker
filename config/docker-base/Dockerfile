@@ -1,16 +1,17 @@
-FROM ubuntu:14.04
+FROM agolub/base
 MAINTAINER Artem Golub <artemgolub@gmail.com>
 
 # Update package list, upgrade
-# Install python-pip
+# Install python-pip and virtualenv
 # Clean up APT when done
 RUN apt-get update && \
     apt-get -y -q upgrade && \
     apt-get install --no-install-recommends -q -y \
         python \
-        python-pip \
-        python-dev \
         libpq-dev \
+        python-dev \
+        build-essential \
+        python-pip \
         uwsgi-plugin-python \
         git \
         openssh-server \

@@ -1,0 +1,9 @@
+django>=1.7
+djangocms-admin-style
+django-admin-tools
+djangorestframework
+django-filter
+django-cors-headers
+markdown
+psycopg2
+uwsgi
