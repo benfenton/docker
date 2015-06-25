@@ -31,27 +31,27 @@ build_base() {
     NAME=base
     VERSION=$VER_BASE
 
-    sed -i 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
     build $NAME $VERSION
-    sed -i 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
 }
 
 build_dev_backend() {
     NAME=backend
     VERSION=$VER_DEV_BACKEND
 
-    sed -i 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
     build $NAME $VERSION
-    sed -i 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
 }
 
 build_dev_webserver() {
     NAME=webserver
     VERSION=$VER_DEV_WEBSERVER
 
-    sed -i 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:VER_BASE/:'"$VER_BASE"'/g' $CONFDIR/docker-$NAME/Dockerfile
     build $NAME $VERSION
-    sed -i 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
+    sed -i '' 's/:'"$VER_BASE"'/:VER_BASE/g' $CONFDIR/docker-$NAME/Dockerfile
 }
 
 
