@@ -1,7 +1,7 @@
 #!/bin/bash
-CONFDIR='./config'
+SCRIPTPATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-source $CONFDIR/containers.sh
+source $SCRIPTPATH/containers.sh
 
 build_base
 

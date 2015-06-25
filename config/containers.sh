@@ -3,7 +3,7 @@
 # set -o xtrace (Show verbose command output for debugging.)
 # set +o xtrace (To revert to normal.)
 
-SCRIPTPATH=`pwd -P`
+SCRIPTPATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 CONFDIR=$SCRIPTPATH
 ROOTDIR=`dirname $CONFDIR`
 
@@ -68,6 +68,12 @@ run_postgres() {
 
 run_dev_backend() {
     NAME=backend
+
+    echo $SCRIPTPATH
+    echo $CONFDIR
+    echo $ROOTDIR
+
+    ls $ROOTDIR/app
 
     mkdir -p $ROOTDIR/logs
 

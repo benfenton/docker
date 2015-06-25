@@ -1,7 +1,7 @@
 #!/bin/bash
-CONFDIR='./config'
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-source $CONFDIR/containers.sh
+source $DIR/containers.sh
 
 stop_remove postgres
 run_postgres
