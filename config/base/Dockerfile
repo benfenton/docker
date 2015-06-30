@@ -4,6 +4,7 @@ MAINTAINER Artem Golub <artemgolub@gmail.com>
 # Update package list, upgrade
 # Install python-pip
 # Clean up APT when done
+# Test to autobuild of this container
 RUN apt-get update && \
     apt-get -y -q upgrade && \
     apt-get install --no-install-recommends -q -y \
